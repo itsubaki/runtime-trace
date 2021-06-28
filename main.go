@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"os"
 	"runtime/trace"
@@ -36,7 +37,7 @@ func (m Matrix) Apply(n Matrix) Matrix {
 		wg.Add(1)
 		go func(ctx context.Context, i int, out *Matrix) {
 			defer wg.Done()
-			defer trace.StartRegion(ctx, "apply").End()
+			defer trace.StartRegion(ctx, fmt.Sprintf("apply[%d]", i)).End()
 
 			v := make([]complex128, b)
 			for j := 0; j < b; j++ {

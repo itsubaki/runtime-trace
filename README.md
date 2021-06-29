@@ -3,6 +3,10 @@
 `runtime/trace` example
 
 ```sh
+$ brew install graphviz
+```
+
+```sh
 $ go run main.go
 $ go tool trace trace.out
 2021/06/28 18:35:01 Parsing trace...
